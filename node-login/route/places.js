@@ -36,26 +36,24 @@ module.exports = (router, foursquare, config) => {
 	  var accessToken = accessToken;
 	  var lat = req.query.lat;
 	  var lng = req.query.lng;
+	  var query = req.query.query;
 	  var near = null
 	  var cb = function(error, json) {
-	  	/*var response = [];
-	  	var groups = json.groups;
-	  	for (var group in groups) {
-	  		var items = groups[group].items;
-		  	for (var item in items) {
+	  	var response = [];
+	  	var venues = json.venues;
+	  	for (var index in venues) {
+	  		var venue = venues[index];
 		  		var json = {};
-		  		json.id = items[item].venue.id;
-		  		json.name = items[item].venue.name;
-		  		json.lat = items[item].venue.location.lat;
-		  		json.lng = items[item].venue.location.lng;
+		  		json.id = venue.id;
+		  		json.name = venue.name;
+		  		json.lat = venue.location.lat;
+		  		json.lng = venue.location.lng;
 		  		response.push(json);
-		  	}
-	  	}*/
-	  	console.log(JSON.stringify(json));
+	  	}
 	  	res.send(response);
 
 	  }
-	  var venues = foursquare.Venues.search("49.872677", "8.632473", null, {"query" : "coffee"}, accessToken, cb);
+	  var venues = foursquare.Venues.search(lat, lng , null, {"query" : query}, accessToken, cb);
 	})
 
 
