@@ -65,6 +65,15 @@ module.exports = (router, foursquare, config) => {
 	  	var response = {};
 	  	//console.log(JSON.stringify(json));
 	  	response.name = json.venue.name;
+	  	if(json.venue.phone !== undefined) {
+	  		response.phone = json.venue.phone;
+	  	}
+	  	if(json.venue.location.address !== undefined) {
+	  		response.location = json.venue.location.address;
+	  	}
+	  	if(json.venue.rating !== undefined) {
+	  		response.rating = json.venue.rating;
+	  	}
 	  	res.send(response);
 	  }
 	  var venues = foursquare.Venues.getVenue(id, accessToken, cb);
