@@ -65,8 +65,8 @@ module.exports = (router, foursquare, config) => {
 	  	var response = {};
 	  	//console.log(JSON.stringify(json));
 	  	response.name = json.venue.name;
-	  	if(json.venue.phone !== undefined) {
-	  		response.phone = json.venue.phone;
+	  	if(json.venue.contact !== undefined && json.venue.contact.phone !== undefined) {
+	  		response.phone = json.venue.contact.phone;
 	  	}
 	  	if(json.venue.location.address !== undefined) {
 	  		response.location = json.venue.location.address;
