@@ -38,7 +38,7 @@ module.exports = (router, foursquare, config) => {
 	  var lng = req.query.lng;
 	  var near = null
 	  var cb = function(error, json) {
-	  	var response = [];
+	  	/*var response = [];
 	  	var groups = json.groups;
 	  	for (var group in groups) {
 	  		var items = groups[group].items;
@@ -50,11 +50,12 @@ module.exports = (router, foursquare, config) => {
 		  		json.lng = items[item].venue.location.lng;
 		  		response.push(json);
 		  	}
-	  	}
+	  	}*/
+	  	console.log(JSON.stringify(json));
 	  	res.send(response);
 
 	  }
-	  var venues = foursquare.Venues.explore(lat, lng, near, config, accessToken, cb);
+	  var venues = foursquare.Venues.search("49.872677", "8.632473", null, {"query" : "coffee"}, accessToken, cb);
 	})
 
 
