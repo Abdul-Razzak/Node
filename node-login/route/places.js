@@ -74,6 +74,7 @@ module.exports = (router, foursquare, config) => {
 	  	if(json.venue.rating !== undefined) {
 	  		response.rating = json.venue.rating;
 	  	}
+	  	console.log(JSON.stringify(response));
 	  	res.send(response);
 	  }
 	  var venues = foursquare.Venues.getVenue(id, accessToken, cb);
