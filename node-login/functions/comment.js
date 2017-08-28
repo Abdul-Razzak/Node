@@ -32,4 +32,15 @@ exports.putComment = (name, email, tips) =>
 		});
 	});
 
+exports.getComments = email => 
+	
+	new Promise((resolve,reject) => {
+
+		entry.find({ email: email }, { email: 1, created_at: 1, venue_id: 1, tips: 1 })
+
+		.then(entries => resolve(entries))
+
+		.catch(err => reject({ status: 500, message: 'Internal Server Error !' }))
+
+	});
 

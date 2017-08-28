@@ -128,6 +128,21 @@ module.exports = (router, foursquare, config) => {
 		}
 	});
 
+	router.get('/getComments', (req,res) => {
+		const email = "email@dao.com";
+
+			comment.getComments(email)
+
+			.then(result => {
+				console.log(result);
+				res.send(result);
+
+			})
+
+			.catch(err => res.status(err.status).json({ message: err.message }));
+
+	});
+
 
 
 }
