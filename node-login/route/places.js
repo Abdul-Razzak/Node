@@ -129,9 +129,11 @@ module.exports = (router, foursquare, config) => {
 	});
 
 	router.get('/getComments', (req,res) => {
-		const email = "email@dao.com";
+		const email = req.query.email;
+		const venueId = req.query.venueId;
 
-			comment.getComments(email)
+
+			comment.getComments(email, venueId)
 
 			.then(result => {
 				console.log(result);
