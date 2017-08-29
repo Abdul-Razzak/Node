@@ -36,7 +36,7 @@ exports.getComments = (email, venueId) =>
 	
 	new Promise((resolve,reject) => {
 
-		entry.find({ email: email, venue_id: venueId }, { email: 1, created_at: 1, venue_id: 1, tips: 1 })
+		entry.find({ venue_id: venueId }, { email: 1, created_at: 1, venue_id: 1, tips: 1 })
 
 		.then(entries => resolve(entries))
 
