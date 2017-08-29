@@ -162,6 +162,22 @@ module.exports = (router, foursquare, config) => {
 
 	});
 
+	router.get('/getUserCheckinInfo', (req,res) => {
+		const email = req.query.email;
+
+
+			checkin.getUserCheckinInfo(email)
+
+			.then(result => {
+				console.log(result);
+				res.send(result);
+
+			})
+
+			.catch(err => res.status(err.status).json({ message: err.message }));
+
+	});
+
 
 
 }
