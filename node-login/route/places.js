@@ -86,15 +86,14 @@ module.exports = (router, foursquare, config) => {
 
 		const name = req.query.venueId;
 		const email =req.query.email;
-		const venueName =req.query.venueName;
-
+		const bugfixvenue = req.query.venueName;
 		if (!name || !email || !name.trim() || !email.trim()) {
 
 			res.status(400).json({message: 'Invalid Request !'});
 
 		} else {
 
-			checkin.checkInVenue(name, email, venueName)
+			checkin.checkInVenue(name, email, bugfixvenue)
 
 			.then(result => {
 
@@ -105,6 +104,7 @@ module.exports = (router, foursquare, config) => {
 			.catch(err => res.status(err.status).json({ message: err.message }));
 		}
 	});
+
 
 	router.post('/addComment', (req, res) => {
 
