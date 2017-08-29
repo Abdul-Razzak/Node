@@ -49,7 +49,7 @@ exports.getUserCheckinInfo = (email) =>
 	
 	new Promise((resolve,reject) => {
 
-		entry.find({ email: email}, { email: 1, venue_id: 1, created_at : 1})
+		entry.find({ email: email}, { email: 1, venue_id: 1, created_at : 1, venue_name : 1})
 
 		.then(entries => resolve(entries))
 
