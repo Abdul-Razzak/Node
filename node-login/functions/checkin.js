@@ -2,7 +2,7 @@
 
 const entry = require('../models/checkin');
 
-exports.checkInVenue = (name, email) => 
+exports.checkInVenue = (name, email, venueName) => 
 
 	new Promise((resolve,reject) => {
 
@@ -11,7 +11,8 @@ exports.checkInVenue = (name, email) =>
 
 			venue_id: name,
 			email: email,
-			created_at: new Date()
+			created_at: new Date(),
+			venue_name: venueName
 		});
 
 		checkinEntry.save()

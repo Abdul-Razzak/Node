@@ -8,7 +8,8 @@ const checkinSchema = mongoose.Schema({
 
 	venue_id 			: String,
 	email			: String, 
-	created_at		: String
+	created_at		: String,
+	venue_name		: String
 	
 });
 

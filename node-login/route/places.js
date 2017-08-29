@@ -86,6 +86,7 @@ module.exports = (router, foursquare, config) => {
 
 		const name = req.query.venueId;
 		const email =req.query.email;
+		const venueName =req.query.venueName;
 
 		if (!name || !email || !name.trim() || !email.trim()) {
 
@@ -93,7 +94,7 @@ module.exports = (router, foursquare, config) => {
 
 		} else {
 
-			checkin.checkInVenue(name, email)
+			checkin.checkInVenue(name, email, venueName)
 
 			.then(result => {
 
