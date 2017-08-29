@@ -32,3 +32,15 @@ exports.checkInVenue = (name, email) =>
 	});
 
 
+exports.getCheckinInfo = (email, venueId) => 
+	
+	new Promise((resolve,reject) => {
+
+		entry.find({ email: email, venue_id: venueId }, { email: 1, venue_id: 1 })
+
+		.then(entries => resolve(entries))
+
+		.catch(err => reject({ status: 500, message: 'Internal Server Error !' }))
+
+	});
+

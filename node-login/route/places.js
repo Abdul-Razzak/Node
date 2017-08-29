@@ -145,6 +145,23 @@ module.exports = (router, foursquare, config) => {
 
 	});
 
+	router.get('/getCheckinInfo', (req,res) => {
+		const email = req.query.email;
+		const venueId = req.query.venueId;
+
+
+			checkin.getCheckinInfo(email, venueId)
+
+			.then(result => {
+				console.log(result);
+				res.send(result);
+
+			})
+
+			.catch(err => res.status(err.status).json({ message: err.message }));
+
+	});
+
 
 
 }
